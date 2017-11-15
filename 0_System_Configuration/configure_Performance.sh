@@ -53,7 +53,7 @@ fi
 
 #  Announce script
 echo -e "\n\033[42m                                                                                \033[0m"
-echo -e "\033[47;30m               CPU AND COOLING FAN CONFIG SCRIPT :: M.J. Riblett                 \033[0m"
+echo -e "\033[47;30m               CPU AND COOLING FAN CONFIG SCRIPT :: M.J. Riblett                \033[0m"
 echo -e "\033[42m                                                                                \033[0m"
 echo -e "\n This script automates the configuration of the CPU cores and cooling fan"
 echo -e " on an NVIDIA Jetson TX2 running JetPack.  The purpose of this script is to"
