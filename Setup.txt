@@ -1,0 +1,20 @@
+# SETUP
+# -----
+
+# The following describes the order in which the scripts included in this
+# repository should be executed to produce a standard installation on a
+# stock NVIDIA Jetson TX2:
+
+# Setup system configuration
+sudo ./0_System_Configuration/install_PerformanceService.sh
+sudo ./0_System_Configuration/add_RootUser.sh
+sudo ./0_System_Configuration/add_RepoDirectory.sh
+sudo ./0_System_Configuration/add_RepoUser.sh
+
+# Setup basic development environment
+sudo ./1_Setup_Development_Environment/install_DeveloperTools.sh
+sudo ./1_Setup_Development_Environment/install_Python.sh
+sudo ./1_Setup_Development_Environment/install_LLVM_401_from_source.sh
+
+
+# More coming soon...  M.J.R.
