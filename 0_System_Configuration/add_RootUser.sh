@@ -69,8 +69,8 @@ read -p 'User to add: ' uservar
 # Error checking
 # -----------------------------------------------------------------------------
 # 1. Does user already exist?
-user_exists=$(id -u ${uservar} > /dev/null 2>&1; echo $?)
-if [ ${user_exists} ]; then
+user_new=$(id -u ${uservar} > /dev/null 2>&1; echo $?)
+if [ ${user_new} == 0 ]; then
   echo -ne ' \033[31mERROR:\033[0m User already exists.\n'
   exit 1
 fi
