@@ -1,0 +1,47 @@
+Instructions to setup SystemD service for configuring 
+Jetson TX2 for maximum performance at boot
+
+
+
+1. Copy jetson_clocks to /usr/local/bin
+----------------------------------------------------------
+   sudo cp jetson_clocks.sh /usr/local/bin/jetson_clocks
+
+
+2. Create powerrun_config
+----------------------------------------------------------
+   vim powerrun_config
+
+   #!/bin/bash
+   /usr/sbin/nvpmodel -m 0
+   /usr/local/bin/jetson_clocks
+
+   chmod a+x powerrun_config
+
+
+2. Copy powerrun_config to /usr/local/bin
+----------------------------------------------------------
+   sudo cp powerrun_config /usr/local/bin/powerrun_config
+
+
+3. Create powerrun_config service
+----------------------------------------------------------
+sudo vim /etc/systemd/system/powerrun_config.service
+
+[Unit]
+Description=Configure Jetson TX2 for Performance Running
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/powerrun_config
+
+[Install]
+WantedBy=multi-user.target
+
+
+4. Enable powerrun_config service
+----------------------------------------------------------
+   systemctl enable powerrun_config.service
+
+
+
