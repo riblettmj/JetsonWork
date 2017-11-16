@@ -88,7 +88,7 @@ if [ "$STATUS" -ne 0 ]; then
 fi
 
 echo -e " - Configuring BOOST build for Jetson TX2"
-cd - ; cd /repo/boost/boost_1_65_1/
+cd - > /dev/null 2>&1; cd /repo/boost/boost_1_65_1/
 ./bootstrap.sh --prefix=/usr/local CFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' CXXFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' FFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
@@ -97,9 +97,9 @@ if [ "$STATUS" -ne 0 ]; then
 fi
 
 echo -e " - Building and installing BOOST libraries"
-./b2 --with=all -j3 install
-ldconfig
-cd -
+./b2 --with=all -j3 install > /dev/null 2>&1
+ldconfig > /dev/null 2>&1
+cd - > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
   echo -e "\033[31m   FAILED: \033[0m Error building and installing the BOOST C++ Libraries."
