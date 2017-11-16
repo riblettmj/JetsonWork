@@ -75,7 +75,7 @@ echo -e " - Downloading BOOST 1.65.1"
 wget http://downloads.sourceforge.net/project/boost/boost/1.65.1/boost_1_65_1.tar.gz > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
-  echo -e "\t\033[31m   FAILED: \033[0m Error downloading source for BOOST C++ libraries."
+  echo -e "\033[31m   FAILED: \033[0m Error downloading source for BOOST C++ libraries."
   exit
 fi
 
@@ -83,7 +83,7 @@ echo -e " - Extracting sources to repository"
 tar -xvzf boost_1_65_1.tar.gz > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
-  echo -e "\t\033[31m   FAILED: \033[0m Error extracting source for BOOST C++ libraries."
+  echo -e "\033[31m   FAILED: \033[0m Error extracting source for BOOST C++ libraries."
   exit
 fi
 
@@ -92,7 +92,7 @@ cd - ; cd /repo/boost/boost_1_65_1/
 ./bootstrap.sh --prefix=/usr/local CFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' CXXFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' FFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
-  echo -e "\t\033[31m   FAILED: \033[0m Error configuring build for BOOST C++ Libraries."
+  echo -e "\033[31m   FAILED: \033[0m Error configuring build for BOOST C++ Libraries."
   exit
 fi
 
@@ -102,7 +102,7 @@ ldconfig
 cd -
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
-  echo -e "\t\033[31m   FAILED: \033[0m Error building and installing the BOOST C++ Libraries."
+  echo -e "\033[31m   FAILED: \033[0m Error building and installing the BOOST C++ Libraries."
   exit
 fi
 

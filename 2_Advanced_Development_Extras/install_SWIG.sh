@@ -68,22 +68,22 @@ read input
 # -----------------------------------------------------------------------------
 echo -e "\n\033[32m Building and installing SWIG\033[0m"
 STATUS=$?
-mkdir -p /repo/swig
+mkdir -p /repo/swig > /dev/null 2>&1
 cd /repo/swig
 
 echo -e " - Downloading SWIG 3.0.10"
 wget http://downloads.sourceforge.net/project/swig/swig/swig-3.0.10/swig-3.0.10.tar.gz > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
-echo -e "\t\033[31m   FAILED: \033[0m Error downloading source for SWIG."
-exit
+  echo -e "\033[31m   FAILED: \033[0m Error downloading source for SWIG."
+  exit
 fi
 
 echo -e " - Extracting SWIG sources to repository"
 tar -xvzf swig-3.0.10.tar.gz > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
-  echo -e "\t\033[31m   FAILED: \033[0m Error extracting source for SWIG."
+  echo -e "\033[31m   FAILED: \033[0m Error extracting source for SWIG."
   exit
 fi
 
@@ -92,7 +92,7 @@ cd - ; cd /repo/swig/swig-3.0.10/
 ./configure > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
-  echo -e "\t\033[31m   FAILED: \033[0m Error configuring build for SWIG."
+  echo -e "\033[31m   FAILED: \033[0m Error configuring build for SWIG."
   exit
 fi
 
@@ -102,7 +102,7 @@ make install
 cd -
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
-  echo -e "\t\033[31m   FAILED: \033[0m Error building and installing SWIG."
+  echo -e "\033[31m   FAILED: \033[0m Error building and installing SWIG."
   exit
 fi
 
