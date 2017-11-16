@@ -104,7 +104,8 @@ fi
 
 echo -e " - Configuring Octave build for Jetson TX2  (May take a while)"
 cd - > /dev/null 2>&1; cd /repo/octave/octave-4.2.1
-./configure --prefix=/usr/local CFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' CXXFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' FFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' --with-hdf5-includedir=/usr/include/hdf5/serial --with-hdf5-libdir=/usr/lib/aarch64-linux-gnu/hdf5/serial JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64" > /dev/null 2>&1
+touch build.log > /dev/null 2>&1
+./configure --prefix=/usr/local CFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' CXXFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' FFLAGS='-O3 -march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57' --with-hdf5-includedir=/usr/include/hdf5/serial --with-hdf5-libdir=/usr/lib/aarch64-linux-gnu/hdf5/serial JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64" > build.log 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
   echo -e "\033[31m   FAILED: \033[0m Error configuring build for Octave."
@@ -112,8 +113,8 @@ if [ "$STATUS" -ne 0 ]; then
 fi
 
 echo -e " - Building and installing Octave           (Go get a coffee)"
-make -j3 > /dev/null 2>&1
-make install > /dev/null 2>&1
+make -j3 >> build.log 2>&1
+make install >> build.log 2>&1
 cd - > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then

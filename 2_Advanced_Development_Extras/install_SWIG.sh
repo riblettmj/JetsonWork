@@ -89,7 +89,8 @@ fi
 
 echo -e " - Configuring SWIG build for Jetson TX2  (May take a while)"
 cd - > /dev/null 2>&1; cd /repo/swig/swig-3.0.10/
-./configure > /dev/null 2>&1
+touch build.log > /dev/null 2>&1
+./configure > build.log 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
   echo -e "\033[31m   FAILED: \033[0m Error configuring build for SWIG."
@@ -97,8 +98,8 @@ if [ "$STATUS" -ne 0 ]; then
 fi
 
 echo -e " - Building and installing SWIG           (Go get a coffee)"
-make -j3 > /dev/null 2>&1
-make install > /dev/null 2>&1
+make -j3 >> build.log 2>&1
+make install >> build.log 2>&1
 cd - > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
