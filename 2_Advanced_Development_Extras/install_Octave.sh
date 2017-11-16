@@ -64,7 +64,7 @@ echo -e "\n >> Press [ENTER] to proceed with installation or [Ctrl+C] to quit."
 read input
 
 
-# Installdeveloper tools
+# Install GNU Octave
 # -----------------------------------------------------------------------------
 echo -e "\n\033[32m Building and installing Octave\033[0m"
 STATUS=$?
