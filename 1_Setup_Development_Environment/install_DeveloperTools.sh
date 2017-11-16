@@ -95,7 +95,7 @@ apt-get install avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan \
                 libglew-dev libtiff5-dev zlib1g-dev libjpeg-dev libpng12-dev \
                 libjasper-dev libavcodec-dev libavformat-dev libavutil-dev \
                 libpostproc-dev libswscale-dev libeigen3-dev libtbb-dev \
-                libgtk2.0-dev pkg-config -y > /dev/null 2>&1
+                libgtk2.0-dev pkg-config cvs bzr bzrtools -y > /dev/null 2>&1
 STATUS=$?
 if [ "$STATUS" -ne 0 ]; then
   echo -ne "  \033[31m FAILED:\033[0m Error installing developer tools\n"
