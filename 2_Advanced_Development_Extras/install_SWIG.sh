@@ -87,7 +87,7 @@ if [ "$STATUS" -ne 0 ]; then
   exit
 fi
 
-echo -e " - Configuring SWIG build for Jetson TX2"
+echo -e " - Configuring SWIG build for Jetson TX2  (May take a while)"
 cd - > /dev/null 2>&1; cd /repo/swig/swig-3.0.10/
 ./configure > /dev/null 2>&1
 STATUS=$?
@@ -96,7 +96,7 @@ if [ "$STATUS" -ne 0 ]; then
   exit
 fi
 
-echo -e " - Building and installing SWIG"
+echo -e " - Building and installing SWIG           (Go get a coffee)"
 make -j3 > /dev/null 2>&1
 make install > /dev/null 2>&1
 cd - > /dev/null 2>&1
