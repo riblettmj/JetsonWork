@@ -14,7 +14,19 @@ sudo ./0_System_Configuration/add_RepoUser.sh
 # Setup basic development environment
 sudo ./1_Setup_Development_Environment/install_DeveloperTools.sh
 sudo ./1_Setup_Development_Environment/install_Python.sh
-sudo ./1_Setup_Development_Environment/install_LLVM_401_from_source.sh
+sudo ./1_Setup_Development_Environment/install_LLVM_501_from_source.sh
+
+# Setup advanced development environment [Optional]
+sudo ./2_Advanced_Development_Extras/install_Boost.sh
+sudo ./2_Advanced_Development_Extras/install_SWIG.sh
+sudo ./2_Advanced_Development_Extras/install_R.sh
+sudo ./2_Advanced_Development_Extras/install_Octave.sh
+
+# Setup deep learning frameworks [Optional - Still under development...]
+sudo ./3_Deep_Learning_Tools/install_Torch.sh
+
+# Setup useful codes for medical physics and imaging [Optional - Still under development...]
+sudo ./4_Medical_Imaging_Tools/install_VTK.sh
 
 
 # More coming soon...  M.J.R.
